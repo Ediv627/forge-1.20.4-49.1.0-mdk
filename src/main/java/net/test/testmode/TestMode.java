@@ -1,6 +1,7 @@
 package net.test.testmode;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -13,7 +14,11 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.test.testmode.block.ModBlock;
+import net.test.testmode.item.ModeCreativeTabs;
+import net.test.testmode.item.ModeItems;
 import org.slf4j.Logger;
+
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(TestMode.MOD_ID)
@@ -37,9 +42,12 @@ public class TestMode
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        ModeItems.register(modEventBus);
+        ModBlock.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
-
+        ModeCreativeTabs.register(modEventBus);
         // Register our mod's ForgeConfigSpec so that Forge can create and load the config file for us
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -53,6 +61,15 @@ public class TestMode
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
 
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
+            event.accept(ModeItems.Test);
+            event.accept(ModeItems.Raw);
+
+        }
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS){
+            event.accept(ModBlock.Alex_Block);
+            event.accept(ModBlock.Raw_Alex_Block);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
