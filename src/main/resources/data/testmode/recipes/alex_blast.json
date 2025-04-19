@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "coal",
+  "ingredient": {
+    "item": "testmode:raw_alex"
+  },
+  "result": "testmode:raw_ore"
+}

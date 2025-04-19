@@ -1,0 +1,17 @@
+{
+  "item.testmode.alex": "Alex Gem",
+  "item.testmode.raw_ore" : "Raw Alex",
+  "item.testmode.chisle": "Chisle",
+  "item.testmode.foody": "Foody 🥵",
+  "item.testmode.fuely": "Fuely",
+  "block.testmode.alex_block": "Block of Alex",
+  "block.testmode.raw_alex": "Raw Block of Alex",
+  "block.testmode.mgaic_block": "Magic Block",
+  "creativetap.testmode.alexandre_items": "Alex Item",
+  "creativetap.toutorialmode.alexandre_blocks": "Alex Block",
+  "item.testmode.chisel.tooltip.shift": "This Item changes certain Blocks",
+  "item.testmode.chisel.tooltip": "press §eShift§r for more infromation",
+  "item.testmode.foody.tooltip": "§d§kFoode§r §aFuely\n"
+
+
+}
